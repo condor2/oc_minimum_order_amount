@@ -21,7 +21,7 @@
     {% endif %}
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title"><i class="fa fa-pencil"></i> {{ heading_label }}</h3>
+        <h3 class="panel-title"><i class="fa fa-pencil"></i> {{ text_edit }}</h3>
       </div>
       <div class="panel-body">
         <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-module" class="form-horizontal">
@@ -31,7 +31,7 @@
               <input type="text" disabled="disabled" value="{{ store_currency }}" class="form-control" />
             </div>
           </div>
-          <div class="form-group">
+          <div class="form-group required">
             <label class="col-sm-2 control-label">{{ entry_amount_value }}</label>
             <div class="col-sm-10">
               <input type="text" value="{{ value_amount_value }}" class="form-control" name="module_minimal_order_amount_value_amount_value" />
@@ -40,14 +40,14 @@
               {% endif %}
             </div>
           </div>
-          <div class="form-group">
+          <div class="form-group required">
             <label class="col-sm-2 control-label">{{ entry_error_msg }}</label>
             <div class="col-sm-10">
               <textarea name="module_minimal_order_amount_value_error_msg" cols="40" rows="5" placeholder="{{ placeholder_error_msg }}" class="form-control">{{ value_error_msg }}</textarea>
-              <p>{{ tip_error_msg }}</p>
               {% if error_msg %}
                 <div class="text-danger">{{ error_msg }}</div>
               {% endif %}
+              <small class="form-text text-muted">{{ tip_error_msg }}</small>
             </div>
           </div>          
         </form>

@@ -9,12 +9,15 @@ class ControllerExtensionModuleMinimalOrderAmount extends Controller {
         $this->document->setTitle($this->language->get('heading_title'));
 
         if ($this->request->server['REQUEST_METHOD'] == 'POST') {
+
             $data['value_amount_value'] = $this->request->post['module_minimal_order_amount_value_amount_value'];
             $data['value_error_msg']  = $this->request->post['module_minimal_order_amount_value_error_msg'];
 
             if ($this->validate()) {
                 $this->model_setting_setting->editSetting('module_minimal_order_amount', $this->request->post);
+
                 $this->session->data['success'] = $this->language->get('text_success');
+
                 $this->response->redirect($this->url->link('marketplace/extension', 'user_token=' . $this->session->data['user_token'], true));
             }
         } else {
